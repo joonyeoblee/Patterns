@@ -6,7 +6,7 @@ namespace ObjectPool
 {
     public class ClientObjectPool : MonoBehaviour
     {
-        public DroneObjectPool _pool;
+        private DroneObjectPool _pool;
 
         void Start()
         {
