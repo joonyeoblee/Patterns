@@ -1,17 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
 using UnityEngine.Events;
+using System.Collections.Generic;
 
-namespace Event
+namespace Chapter.EventBus
 {
-    public class GameEventBus : MonoBehaviour
+    public class RaceEventBusSO
     {
-        private static readonly IDictionary<GameEventType, UnityEvent> Events = new Dictionary<GameEventType, UnityEvent>();
+        private static readonly
+            IDictionary<RaceEventType, UnityEvent>
+            Events = new Dictionary<RaceEventType, UnityEvent>();
 
-        public static void Subscribe(GameEventType eventType, UnityAction listener)
+        public static void Subscribe
+            (RaceEventType eventType, UnityAction listener)
         {
+
             UnityEvent thisEvent;
 
             if (Events.TryGetValue(eventType, out thisEvent))
@@ -26,26 +27,27 @@ namespace Event
             }
         }
 
-        public static void Unsubscribe(GameEventType eventType, UnityAction listener)
+        public static void Unsubscribe
+            (RaceEventType type, UnityAction listener)
         {
+
             UnityEvent thisEvent;
 
-            if (Events.TryGetValue(eventType, out thisEvent))
+            if (Events.TryGetValue(type, out thisEvent))
             {
                 thisEvent.RemoveListener(listener);
             }
         }
 
-        public static void publish(GameEventType eventType)
+        public static void Publish(RaceEventType type)
         {
+
             UnityEvent thisEvent;
 
-            if (Events.TryGetValue(eventType, out thisEvent))
+            if (Events.TryGetValue(type, out thisEvent))
             {
                 thisEvent.Invoke();
             }
         }
-
     }
 }
-
