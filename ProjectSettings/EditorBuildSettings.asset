@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/New Folder/Singleton.unity
+    guid: 8cab377620a3544c3aedc664ef0eb268
+  - enabled: 1
+    path: Assets/Scenes/New Folder/ObjectPool.unity
+    guid: f718e2c90661a3144afd178f93c22074
   m_configObjects: {}
