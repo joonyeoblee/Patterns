@@ -4,15 +4,15 @@ using UnityEngine;
 
 public class BikeShield : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public float health;
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
