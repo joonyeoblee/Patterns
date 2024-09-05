@@ -34,14 +34,36 @@ namespace Visitor
                 bikeShield.health = 100.0f;
         }
 
-        public void Visit(BikeEngine bikeEngine)
-        {
-
-        }
-
         public void Visit(BikeWeapon bikeWeapon)
         {
+            int range = bikeWeapon.range += weaponRange;
 
+            if (range >= bikeWeapon.maxRange)
+                bikeWeapon.range = bikeWeapon.maxRange;
+            else
+                bikeWeapon.range = range;
+
+            float strength =
+                bikeWeapon.strength +=
+                    Mathf.Round(
+                        bikeWeapon.strength
+                        * weaponStrength / 100);
+
+            if (strength >= bikeWeapon.maxStrength)
+                bikeWeapon.strength = bikeWeapon.maxStrength;
+            else
+                bikeWeapon.strength = strength;
+        }
+
+        public void Visit(BikeEngine bikeEngine)
+        {
+            float boost = bikeEngine.turboBoost += turboBoost;
+
+            if (boost < 0.0f)
+                bikeEngine.turboBoost = 0.0f;
+
+            if (boost >= bikeEngine.maxTurboBoost)
+                bikeEngine.turboBoost = bikeEngine.maxTurboBoost;
         }
     }
 }
